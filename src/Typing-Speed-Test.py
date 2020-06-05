@@ -24,11 +24,11 @@ class application():
         for text,mode in Choices:
             self.type = Radiobutton(self.root, text=text, font=("Northwest old", 15), 
             fg = "#FF6347",bg = "black",variable=self.choiceVar, value = mode)
-            self.type.grid(pady = (0,20))
+            self.type.grid(pady = (0,30))
         
         self.Start = Button(self.root, text="Start", width = 10, command = self.launch, 
         fg = "white", bg = "black", font=("Bell MT", 15))
-        self.Start.grid(pady=(30,5))
+        self.Start.grid(pady=(30,70))
 
     def launch(self):
         self.new_window = Toplevel(self.root) 
