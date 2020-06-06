@@ -17,7 +17,7 @@ class SelectionWindow():
         bg = "black", fg = "white", font=("Algerian",40))
         self.choice.grid(pady = (0,100))
 
-        Choices = [(" WARMUP ",1),(" EASY ",2),(" HARD ",2)]
+        Choices = [(" WARMUP ",1),(" EASY ",2),(" HARD ",3)]
         self.choiceVar = StringVar()
         self.choiceVar.set(1)
 
