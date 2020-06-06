@@ -1,11 +1,13 @@
 from tkinter import *
+from Modules.TestWindow import TestWindow
 
-class SelectionPage():
+class SelectionWindow():
     def __init__(self,root):
         self.root = root
         self.root.grid_rowconfigure(0,weight=2)
         self.root.grid_columnconfigure(0,weight=1)
         self.root.configure(bg="black")
+        self.root.title("Selection Window")
 
         self.heading = Label(self.root,text = "TYPING SPEED TEST",fg = "green",
         bg = "black", font=("Castellar", 70))
@@ -31,4 +33,4 @@ class SelectionPage():
     def launch(self):
         self.new_window = Toplevel(self.root) 
         self.root.withdraw()
-        self.app = SecondPage(self.new_window, self.choiceVar.get())
+        self.app = TestWindow(self.new_window, self.choiceVar.get())
