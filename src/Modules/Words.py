@@ -3,9 +3,7 @@ import random
 import time
 
 def words(choice):
-    url = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
-    response = urllib.request.urlopen(url)
-    data = str(response.read().decode())
+    data = open("assets\dictionary.txt","r").read()
     words = data.splitlines()
     basic_words = []
     j = 3
