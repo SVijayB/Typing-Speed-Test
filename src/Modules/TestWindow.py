@@ -34,7 +34,7 @@ class TestWindow():
 
         self.time_label = Label(window)
 
-    def re(event):
+    def re(self,event):
         self.score = 0
         self.time = 20
         start(event)
