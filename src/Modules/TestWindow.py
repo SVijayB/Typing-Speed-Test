@@ -27,11 +27,26 @@ class TestWindow:
 
         self.time_up_message = Label(window)
 
-        self.score = Label(window,text = "Score : 0", font = "Agency",fg = "green", bg = "black")
+        self.score_label = Label(window,text = "Score : 0", font = "Agency",fg = "green", bg = "black")
 
         self.time = 61
 
         self.time_label = Label(window)
+
+        def re(event):
+            self.score = 0
+            self.time = 20
+            start(event)
+        
+        def final_score(score):
+            return score
+
+        def result():
+            self.speed = Label(window,text = "Speed : " + str(round(60/(score))) + "wpm", 
+            width = 200, height = 100, fg = "green", font = "Algerian",bg = "back")
+            self.speed.grid()
+            self.time_up_message.grid_forget()
+            self.score_label.grid_forget()
 
         window.protocol("WM_DELETE_WINDOW",self.closing)
 
