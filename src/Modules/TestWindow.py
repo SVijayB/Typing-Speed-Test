@@ -3,14 +3,16 @@ import random
 
 time = 61
 score = 0
+wordpos = 0	
 
-def testwindow(words):
+def testwindow(wordslist):
     window = Tk()
     window.title("Test Window")
     window.config(bg = "black")
     window.geometry("600x400")
 
-    colour = ["Red","Green","Pink","Yellow","Orange","White","Purple","Brown"]
+    colours = ["Red","Green","Pink","Yellow","Orange","White","Purple","Brown"]
+    words = wordslist
 
     current_word = StringVar()
     entry_field = Entry(window, textvariable=current_word, width= 40, font = "Algerian",
@@ -22,11 +24,11 @@ def testwindow(words):
     board.pack()
 
     question = Label(window,font = "Algerian 40",bg = "black")
-    question.place(x=230,y=100)
+    question.place(x=200,y=100)
 
     time_up_message = Label(window)
 
-    score_label = Label(window,text = "Score : 0", font = "Agency 25",fg = "green", bg = "black")
+    score_label = Label(window,text = "Words : 0", font = "Agency 25",fg = "green", bg = "black")
 
     time_label = Label(window)
         
@@ -57,7 +59,7 @@ def testwindow(words):
             time_up_message.pack()
             window.after(2000,result)
 
-    class test():	
+    class test():
         def start(event):
             try:
                 board.pack_forget()
@@ -65,9 +67,9 @@ def testwindow(words):
                 if (time == 61):
                     time_decrement()
                 colour = random.randint(0,9)
-                wordpos = random.randint(0,200)
-                print(words[wordpos])
-                question.config(text = str(words[wordpos]),fg = colour[colour])
+                global wordpos
+                wordpos = wordpos + 1
+                question.config(text = str(words[wordpos]),fg = colours[colour])
                 entry_field.place(x=120,y=250)
                 score_label.place(x=440,y=2)
             
@@ -76,10 +78,11 @@ def testwindow(words):
                     if (current_word.get() == (words[wordpos]).lower()):
                         entry_field.delete(0,END)
                         score = score + 1
-                        score_label.config(text = "Score : " + str(score))
+                        score_label.config(text = "Words : " + str(score))
                         final_score(score)
                         test.start(event)
                     else:
+                        print(current_word.get())
                         entry_field.delete(0,END)
                         test.start(event)
                 window.bind("<Return>",correct)
