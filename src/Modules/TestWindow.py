@@ -32,16 +32,6 @@ def testwindow(wordslist):
 
     time_label = Label(window)
         
-    def final_score(score):
-        return score
-        
-    def result():
-        speed = Label(window,text = "Speed : " + str(score) + "wpm", 
-            width = 200, height = 100, fg = "green", font = "Algerian 80",bg = "black")
-        speed.pack()
-        time_up_message.forget()
-        score_label.forget()
-        
     def time_decrement():
         global time
         if time>0:
@@ -58,6 +48,16 @@ def testwindow(wordslist):
                 fg = "red", width = 600, height = 600)
             time_up_message.pack()
             window.after(2500,result)
+
+    def final_score(score):
+        return score
+        
+    def result():
+        speed = Label(window,text = "Speed : " + str(score) + "wpm", 
+            width = 200, height = 100, fg = "green", font = "Algerian 80",bg = "black")
+        speed.pack()
+        time_up_message.forget()
+        score_label.forget()
 
     class test():
         def start(event):

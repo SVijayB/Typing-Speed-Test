@@ -5,7 +5,7 @@ from Modules.TestWindow import testwindow
 
 def words(choice):
     choice = int(choice)
-    data = open("assets\dictionary.txt","r").read()
+    data = open("../assets/dictionary.txt","r").read()
     words = data.splitlines()
     basic_words = []
     j = 3
