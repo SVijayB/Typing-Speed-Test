@@ -9,22 +9,22 @@ def testwindow(wordslist):
     window = Tk()
     window.title("Test Window")
     window.config(bg = "black")
-    window.geometry("600x400")
+    window.state("zoomed")
 
     colours = ["Red","Green","Pink","Yellow","Orange","White","Purple","Brown"]
     words = wordslist
 
     current_word = StringVar(window)
-    entry_field = Entry(window, textvariable=current_word, width= 40, font = "Algerian",
+    entry_field = Entry(window, textvariable=current_word, width= 30, font = "Algerian 30",
         bg = "black", insertbackground = "red", fg='white')
     entry_field.focus()
 
     board = Label(window,text="Press enter \nto start",width=600,height=400,
-            font="Algerian 40",fg = "green",bg = "black")
+            font="Algerian 70",fg = "green",bg = "black")
     board.pack()
 
-    question = Label(window,font = "Algerian 40",bg = "black")
-    question.place(x=200,y=100)
+    question = Label(window,font = "Algerian 60",bg = "black")
+    question.place(x=450,y=200)
 
     time_up_message = Label(window)
 
@@ -36,8 +36,8 @@ def testwindow(wordslist):
         return score
         
     def result():
-        speed = Label(window,text = "Speed : " + str(round(60/(score))) + "wpm", 
-            width = 200, height = 100, fg = "green", font = "Algerian 50",bg = "black")
+        speed = Label(window,text = "Speed : " + str(score) + "wpm", 
+            width = 200, height = 100, fg = "green", font = "Algerian 80",bg = "black")
         speed.pack()
         time_up_message.forget()
         score_label.forget()
@@ -54,10 +54,10 @@ def testwindow(wordslist):
             entry_field.place_forget()
             score_label.place_forget()
             time_label.place_forget()
-            time_up_message.config(text = "Time's Up", font = "Algerian 50", bg = "black", 
+            time_up_message.config(text = "Time's Up", font = "Algerian 80", bg = "black", 
                 fg = "red", width = 600, height = 600)
             time_up_message.pack()
-            window.after(2000,result)
+            window.after(2500,result)
 
     class test():
         def start(event):
@@ -70,8 +70,8 @@ def testwindow(wordslist):
                 global wordpos
                 wordpos = wordpos + 1
                 question.config(text = str(words[wordpos]),fg = colours[colour])
-                entry_field.place(x=120,y=250)
-                score_label.place(x=440,y=2)
+                entry_field.place(x=350,y=400)
+                score_label.place(x=1200,y=2)
             
                 def correct(event):
                     global score
@@ -82,7 +82,6 @@ def testwindow(wordslist):
                         final_score(score)
                         test.start(event)
                     else:
-                        print(current_word.get())
                         entry_field.delete(0,END)
                         test.start(event)
                 window.bind("<Return>",correct)
