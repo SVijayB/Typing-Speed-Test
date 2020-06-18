@@ -10,7 +10,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/SVijayB/Typing-Speed-Test.svg)](https://github.com/SVijayB/Typing-Speed-Test/issues)
 [![GitHub contributors](https://img.shields.io/github/contributors/SVijayB/Typing-Speed-Test.svg)](https://github.com/SVijayB/Typing-Speed-Test/graphs/contributors)
 
-[![GitHub license](https://img.shields.io/github/license/SVijayB/Typing-Speed-Test.svg)](https://github.com/SVijayB/Typing-Speed-Test/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/SVijayB/Typing-Speed-Test)](https://github.com/SVijayB/Typing-Speed-Test/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/SVijayB/Typing-Speed-Test.svg)](https://github.com/SVijayB/Typing-Speed-Test/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/SVijayB/Typing-Speed-Test)](https://github.com/SVijayB/Typing-Speed-Test)
 
@@ -44,7 +44,7 @@ git clone https://github.com/SVijayB/Typing-Speed-Test.git
 </pre>
 
 Once you launch the `Typing-Speed-Test.py` file, just select one of the three modes.
-- Warmup : A random stream of short and long words that help you warmup your fingers.
+- Warmup : A random stream of short and long words that help you warm up your fingers.
 - Easy : Short words that help you practice typing.
 - Hard : Expertise level, Long and difficult words.
 
