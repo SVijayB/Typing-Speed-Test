@@ -1,96 +1,90 @@
-import sys
 from tkinter import *
 import random
 
-class TestWindow():
-    def __init__(self,window,choice):
-        self.window = window
-        self.window.state("zoomed")
-        self.window.grid_rowconfigure(0,weight=0)
-        self.window.grid_columnconfigure(0,weight=1)
-        self.choice = choice
-        self.window.title("Test Window")
-        self.window.config(bg = "black")
-        self.colour = ["Red","Blue","Green","Pink","Yellow","Orange","White","Purple","Brown"]
-        self.score = 0
+window = Tk()
+window.title("Test Window")
+window.config(bg = "black")
+window.geometry("600x400")
 
-        self.current_word = StringVar()
-        self.entry_field = Entry(window,textvariable=current_word ,
-        font = "Algerian", bg = "black", insertbackground = "red")
-        self.entry_field.focus()
+colour = ["Red","Blue","Green","Pink","Yellow","Orange","White","Purple","Brown"]
+score = 0
 
-        self.board = Label(window,text="Press enter to start",width=600,height=400,
-        font="Algerian",fg = "green",bg = "black")
-        self.board.grid(pady = (0,10))
+current_word = StringVar()
+entry_field = Entry(window, textvariable=current_word, font = "Algerian",
+    bg = "black", insertbackground = "red", fg='white')
 
-        self.question = Label(window,font = "Algerian",bg = "black")
-        self.question.grid(pady = (0,10))
+board = Label(window,text="Press enter to start",width=600,height=400,
+        font="Algerian 25",fg = "green",bg = "black")
+board.pack()
 
-        self.time_up_message = Label(window)
+question = Label(window,font = "Algerian",bg = "black")
+question.place(x=230,y=50)
 
-        self.score_label = Label(window,text = "Score : 0", font = "Agency",fg = "green", bg = "black")
+time_up_message = Label(window)
 
-        self.time = 61
+score_label = Label(window,text = "Score : 0", font = "Agency",fg = "green", bg = "black")
 
-        self.time_label = Label(window)
+time = 61
 
-    def re(self,event):
-        self.score = 0
-        self.time = 20
-        start(event)
+time_label = Label(window)
 	
-    def final_score(self,score):
-    	return self.score
+def final_score(score):
+    return score
 	
-    def result(self):
-        self.speed = Label(window,text = "Speed : " + str(round(60/(score))) + "wpm", 
+def result():
+    speed = Label(window,text = "Speed : " + str(round(60/(score))) + "wpm", 
         width = 200, height = 100, fg = "green", font = "Algerian",bg = "back")
-        self.speed.grid()
-        self.time_up_message.grid_forget()
-        self.score_label.grid_forget()
+    speed.pack()
+    time_up_message.forget()
+    score_label.forget()
 	
-    def time_decrement(self):
-        if(self.time>0):
-            self.time = self.time - 1
-            self.time_label.config(text = "Time Left : " + str(time),font = "Agency", 
+def time_decrement():
+    global time
+    if time>0:
+        time = time - 1
+        time_label.config(text = "Time Left : " + str(time),font = "Agency", 
             bg = "black", fg = "orange")
-            self.time_label.place(x = 2, y = 2)
-            self.window.after(1000,time)
-        else:
-            self.entry_field.place_forget()
-            self.time_up_message.config(text = "Time's Up", font = "Algerian", bg = "black", 
+        time_label.place(x = 2, y = 2)
+        window.after(1000,time_decrement)
+    else:
+        entry_field.place_forget()
+        time_up_message.config(text = "Time's Up", font = "Algerian", bg = "black", 
             fg = "red", width = 600, height = 600)
-            self.time_up_message.grid()
-            self.score_label.place_forget()
-            self.time_label.place_forget()
-            window.after(2000,result)
-	
-    def start(self,event):
+        time_up_message.pack()
+        score_label.place_forget()
+        time_label.place_forget()
+        window.after(2000,result)
+
+class test():	
+    def start(event):
         try:
-            self.board.pack_forget()
-            if (self.time == 61):
+            board.pack_forget()
+            global time
+            if (time == 61):
                 time_decrement()
-            self.word = random.randint(0,9)
-            self.question.config(text = str("Word"),fg = self.colour[self.word])
-            self.entry_field.place(pady = (0,10))
-            self.score_label.place(pady = (0,10))
-	
-            def correct(self,event):
-                if (self.current_word.get() == ("Word").lower()):
-                    self.entry_field.delete(0,END)
-                    self.score = self.score + 1
-                    self.score_label.config(text = "Score : " + str(self.score))
-                    self.final_score(score)
-                    start(event)
+            word = random.randint(0,9)
+            question.config(text = str("Word"),fg = colour[word])
+            entry_field.place(x=120,y=200)
+            score_label.place(x=400,y=2)
+        
+            def correct(event):
+                global score
+                if (current_word.get() == ("Word").lower()):
+                    entry_field.delete(0,END)
+                    score = score + 1
+                    score_label.config(text = "Score : " + str(score))
+                    final_score(score)
+                    test.start(event)
                 else:
-                    self.entry_field.delete(0,END)
-                    start(event)
+                    entry_field.delete(0,END)
+                    test.start(event)
             window.bind("<Return>",correct)
         except:
             pass
     window.bind("<Return>",start)
 
-    def closing(self):
-        sys.exit(0)
+def closing(): 
+    sys.exit(0)
 
-    window.protocol("WM_DELETE_WINDOW",closing)
+window.protocol("WM_DELETE_WINDOW",closing)
+window.mainloop()

@@ -1,5 +1,5 @@
 from tkinter import *
-from Modules.TestWindow import TestWindow
+from Modules.Words import words
 
 class SelectionWindow():
     def __init__(self,root):
@@ -31,6 +31,5 @@ class SelectionWindow():
         self.Start.grid(pady=(30,70))
 
     def launch(self):
-        self.new_window = Toplevel(self.root) 
         self.root.withdraw()
-        self.app = TestWindow(self.new_window, self.choiceVar.get())
+        words(self.choiceVar.get())

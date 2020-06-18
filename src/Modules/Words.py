@@ -1,8 +1,10 @@
 import urllib.request
 import random
 import time
+import Modules.TestWindow
 
 def words(choice):
+    choice = int(choice)
     data = open("assets\dictionary.txt","r").read()
     words = data.splitlines()
     basic_words = []
@@ -16,10 +18,5 @@ def words(choice):
     for x in words:
         if(len(x) < i and len(x) > j):
             basic_words.append(x)
-    randwords = random.sample(basic_words,200)
-    result = ""
-    for x in randwords:
-        result = x + "\n" +result
-    return result
-
-print(words(2))
+    result = random.sample(basic_words,200)
+    return(result)
