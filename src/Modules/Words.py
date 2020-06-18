@@ -1,7 +1,7 @@
 import urllib.request
 import random
 import time
-import Modules.TestWindow
+from Modules.TestWindow import testwindow
 
 def words(choice):
     choice = int(choice)
@@ -19,4 +19,4 @@ def words(choice):
         if(len(x) < i and len(x) > j):
             basic_words.append(x)
     result = random.sample(basic_words,200)
-    return(result)
+    testwindow(result)
