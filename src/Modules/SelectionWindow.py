@@ -7,7 +7,6 @@ class SelectionWindow():
         self.root.grid_rowconfigure(0,weight=2)
         self.root.grid_columnconfigure(0,weight=1)
         self.root.configure(bg="black")
-        self.root.title("Selection Window")
 
         self.heading = Label(self.root,text = "TYPING SPEED TEST",fg = "green",
         bg = "black", font=("Castellar", 70))

@@ -7,7 +7,9 @@ wordpos = 0
 
 def testwindow(wordslist):
     window = Tk()
-    window.title("Test Window")
+    data = open("../assets/version.txt" , "r").read()
+    window.title("Typing-Speed-Test | " + data)
+    window.iconbitmap("../assets/favicon_io/favicon.ico")
     window.config(bg = "black")
     window.state("zoomed")
 
