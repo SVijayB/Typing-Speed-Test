@@ -14,7 +14,7 @@ def testwindow(wordslist):
     colours = ["Red","Green","Pink","Yellow","Orange","White","Purple","Brown"]
     words = wordslist
 
-    current_word = StringVar()
+    current_word = StringVar(window)
     entry_field = Entry(window, textvariable=current_word, width= 40, font = "Algerian",
         bg = "black", insertbackground = "red", fg='white')
     entry_field.focus()
