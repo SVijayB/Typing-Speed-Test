@@ -1,6 +1,6 @@
 # Typing-Speed-Test
 <p align="center">
-    <img src="https://i.ibb.co/2MqRKFv/Logo.jpg" alt="Logo" border="0">
+    <img src="https://i.ibb.co/W0FLjjt/Logo.jpg" alt="Logo" border="0">
     <br>A GUI based application that calculates your typing speed
 </p>
 
@@ -23,6 +23,32 @@
 - [Usage](#Usage)
 - [Contributing](#Contributing)
 - [License](#License)
+
+## Motivation
+
+The main objective of this project was to create a simple and easy to use application that would calculate typing speed. This would enable users to increase their typing skills and also monitor their progress.
+
+Most typing tests are online and the ones that are downloadable(offline) are usually just malware. And so, I set out to build my own typing speed test.
+
+## Usage
+
+Installing and using this application is quite straightforward.
+
+For the latest Stable version, go to [Releases](https://github.com/SVijayB/Typing-Speed-Test/releases)
+
+Extract the files and run `Typing-Speed-Test.py` file present in the `src` folder.
+
+As an alternative, you could also clone the repository using.
+<pre>
+git clone https://github.com/SVijayB/Typing-Speed-Test.git
+</pre>
+
+Once you launch the `Typing-Speed-Test.py` file, just select one of the three modes.
+- Warmup : A random stream of short and long words that help you warmup your fingers.
+- Easy : Short words that help you practice typing.
+- Hard : Expertise level, Long and difficult words.
+
+Now, just click on start and follow the instructions shown in the application.
 
 ## Contributing 
 
