@@ -43,6 +43,8 @@ As an alternative, you could also clone the repository using.
 git clone https://github.com/SVijayB/Typing-Speed-Test.git
 </pre>
 
+**Note** : Typing-Speed-Test uses custom fonts. Most windows computers have them preinstalled. However, if you don't, just open the `Fonts` folder present in assets and launch the `Agency-FB.ttf` and the `Algerian Regular.ttf` files and press install. 
+
 Once you launch the `Typing-Speed-Test.py` file, just select one of the three modes.
 - Warmup : A random stream of short and long words that help you warm up your fingers.
 - Easy : Short words that help you practice typing.
